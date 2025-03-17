@@ -7,19 +7,26 @@ const hamburguesas = function(nombre, ingrediente1, ingrediente2,ingrediente3, i
     this.tamaño = tamaño
     this.valor = valor
 }
-let hamburguesa1 = new hamburguesas (Blue, Carne, cebollaCaramelizada, QuesoAzul, Nueces,doble,  13500 )
-let hamburguesa2 = new hamburguesas (CheeseBurguer, Carne, QuesoCheddar, undefined, undefined, simple,9500)
-let hamburguesa3 = new hamburguesas (Oklahoma, Carne, cebollaCaramelizada, QuesoCheddar, undefined, doble, 11300)
-let hamburguesa4 = new hamburguesas (Honey, Carne, QuesoCheddar, BaconPicado, HotHoney, triple,12200)
-let hamburguesa5 = new hamburguesas (Crispy, Carne, QuesoCheddar,Bacon, CebollaCrispy, triple, 13900)
-let hamburguesa6 = new hamburguesas (Chill, Carne, QuesoCheddar, Alioli, undefined, simple, 8900)
+let hamburguesa1 = new Hamburguesas("Blue", "Carne", "Cebolla Caramelizada", "Queso Azul", "Nueces", "Doble", 13500);
+let hamburguesa2 = new Hamburguesas("CheeseBurguer", "Carne", "Queso Cheddar", undefined, undefined, "Simple", 9500);
+let hamburguesa3 = new Hamburguesas("Oklahoma", "Carne", "Cebolla Caramelizada", "Queso Cheddar", undefined, "Doble", 11300);
+let hamburguesa4 = new Hamburguesas("Honey", "Carne", "Queso Cheddar", "Bacon Picado", "Hot Honey", "Triple", 12200);
+let hamburguesa5 = new Hamburguesas("Crispy", "Carne", "Queso Cheddar", "Bacon", "Cebolla Crispy", "Triple", 13900);
+let hamburguesa6 = new Hamburguesas("Chill", "Carne", "Queso Cheddar", "Alioli", undefined, "Simple", 8900);
 const menu = [hamburguesa1, hamburguesa2, hamburguesa3, hamburguesa4, hamburguesa5, hamburguesa6]
 
 function filtroTamaño(){
     let tamañoBurguer = prompt("¿Que tamaño te gustaria probar? SIMPLE, DOBLE O TRIPLE").trim().toUpperCase()
-    let resultadoTamaño = menu.filter( (x)=> x.tamaño.toUpperCase.includes(tamañoBurguer))
-    if(resultadoTamaño.length > 1){
-        console.log(tamañoBurguer)
-    }else
-        alert("Error, valor inexistente");
+    let resultadoTamaño = menu.filter( (x)=> x.tamaño.toUpperCase() === tamañoBurguer)
+
+    if(resultadoTamaño.length > 0){
+        let hamburguesasDisponibles = "Las hamburguesas disponibles son: "
+        resultadoTamaño.forEach(i =>{
+            hamburguesasDisponibles += `${i.nombre}`
+        })
+        alert(hamburguesasDisponibles)
+    }
+    else{
+        alert("Error, tamaño inexistente")
+    }
 }
