@@ -1,38 +1,25 @@
-let hamburguesa = 0;
-let eleccion = true;
+const hamburguesas = function(nombre, ingrediente1, ingrediente2,ingrediente3, ingrediente4, tamaño, valor){
+    this.nombre = nombre
+    this.ingrediente1 = ingrediente1,
+    this.ingrediente2 = ingrediente2,
+    this.ingrediente3 = ingrediente3,
+    this.ingrediente4 = ingrediente4,
+    this.tamaño = tamaño
+    this.valor = valor
+}
+let hamburguesa1 = new hamburguesas (Blue, Carne, cebollaCaramelizada, QuesoAzul, Nueces,doble,  13500 )
+let hamburguesa2 = new hamburguesas (CheeseBurguer, Carne, QuesoCheddar, undefined, undefined, simple,9500)
+let hamburguesa3 = new hamburguesas (Oklahoma, Carne, cebollaCaramelizada, QuesoCheddar, undefined, doble, 11300)
+let hamburguesa4 = new hamburguesas (Honey, Carne, QuesoCheddar, BaconPicado, HotHoney, triple,12200)
+let hamburguesa5 = new hamburguesas (Crispy, Carne, QuesoCheddar,Bacon, CebollaCrispy, triple, 13900)
+let hamburguesa6 = new hamburguesas (Chill, Carne, QuesoCheddar, Alioli, undefined, simple, 8900)
+const menu = [hamburguesa1, hamburguesa2, hamburguesa3, hamburguesa4, hamburguesa5, hamburguesa6]
 
-do {
-    let selector = prompt("Ingrese 1 para hacer su pedido, 0 para cerrar");
-    let comprobacion = parseInt(selector);
-
-    if (isNaN(comprobacion)){
-        console.log("Dato Incorrecto, Vuelva a relizar el pedido")
-        break;
-    }
-
-    if (comprobacion !== 0 && comprobacion !== 1) { 
-        console.log("Dato Incorrecto, Vuelva a relizar el pedido") 
-        break;
-    } else if (comprobacion == 0) {
-        console.log("Su pedido ha sido cancelado")
-        eleccion = false;
-    } else {
-        if (comprobacion == 1) {
-            let hamburguesa = prompt("MENU: coloque 1 para hamburguesa simple, coloque 2 para hamburguesa doble con cheddar, coloque 3 para hamburguesa completa triple")
-
-            if (hamburguesa == 1) {
-                console.log("Su hamburguesa simple fue pedida")
-                eleccion = false;
-            } else if (hamburguesa == 2) {
-                console.log("Su hamburguesa doble con cheddar fue pedida") 
-                eleccion = false;
-            } else if (hamburguesa == 3) {
-                console.log("Su hamburguesa completa triple fue pedida") 
-                eleccion = false;
-            } else {
-                console.log("Su pedido fue erróneo, vuelva a realizarlo")
-                break;
-            }
-        }
-    }
-} while (eleccion);
+function filtroTamaño(){
+    let tamañoBurguer = prompt("¿Que tamaño te gustaria probar? SIMPLE, DOBLE O TRIPLE").trim().toUpperCase()
+    let resultadoTamaño = menu.filter( (x)=> x.tamaño.toUpperCase.includes(tamañoBurguer))
+    if(resultadoTamaño.length > 1){
+        console.log(tamañoBurguer)
+    }else
+        alert("Error, valor inexistente");
+}
